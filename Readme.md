@@ -1,8 +1,8 @@
 # Projeto Spring Boot com GraalVM Native e OAuth2
 ##### _Este projeto é desenvolvido por Marcelo M Macedo e utiliza as seguintes tecnologias:_
-[![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+
 ## Tech
 - Spring Boot 3.0.4
 - GraalVM Native
@@ -46,9 +46,8 @@ Contribuições são sempre bem-vindas! Se você deseja contribuir com este proj
 Este projeto está licenciado sob a licença MIT - veja o arquivo LICENSE para mais detalhes.
 
 
-### Reference Documentation
-For further reference, please consider the following sections:
-
+### Documentação de referência
+Para mais informações, por favor, considere as seguintes seções:
 * [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
 * [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/3.0.4/maven-plugin/reference/html/)
 * [Create an OCI image](https://docs.spring.io/spring-boot/docs/3.0.4/maven-plugin/reference/html/#build-image)
@@ -73,16 +72,13 @@ These additional references should also help you:
 
 * [Configure AOT settings in Build Plugin](https://docs.spring.io/spring-boot/docs/3.0.4/maven-plugin/reference/htmlsingle/#aot)
 
-## GraalVM Native Support
+## Suporte Nativo GraalVM
+Este projeto foi configurado para permitir que você gere um contêiner leve ou um executável nativo. Também é possível executar seus testes em uma imagem nativa.
 
-This project has been configured to let you generate either a lightweight container or a native executable.
-It is also possible to run your tests in a native image.
+### Contêiner Leve com Cloud Native Buildpacks
+Se você já está familiarizado com o suporte de imagens de contêiner do Spring Boot, esta é a maneira mais fácil de começar. O Docker deve ser instalado e configurado em sua máquina antes de criar a imagem.
 
-### Lightweight Container with Cloud Native Buildpacks
-If you're already familiar with Spring Boot container images support, this is the easiest way to get started.
-Docker should be installed and configured on your machine prior to creating the image.
-
-To create the image, run the following goal:
+Para criar a imagem, execute o seguinte objetivo:
 
 ```
 $ ./mvnw spring-boot:build-image -Pnative
@@ -90,27 +86,28 @@ $ ./mvnw spring-boot:build-image -Pnative
 
  
 
-### Executable with Native Build Tools
-Use this option if you want to explore more options such as running your tests in a native image.
-The GraalVM `native-image` compiler should be installed and configured on your machine.
+### Executável com Ferramentas de Construção Nativa
+Use esta opção se você deseja explorar mais opções, como executar seus testes em uma imagem nativa.
+O compilador native-image do GraalVM deve ser instalado e configurado em sua máquina.
 
-NOTE: GraalVM 22.3+ is required.
+NOTA: É necessário o GraalVM 22.3+.
 
-To create the executable, run the following goal:
+Para criar o executável, execute o seguinte objetivo:
 
 ```
 $ ./mvnw clean pacckage -Pnative
 ```
 
-Then, you can run the app as follows:
+Então, você pode executar o aplicativo da seguinte maneira:
+
 ```
-$ target/areadigital
+$ target/areadigital-runner
 ```
 
-You can also run your existing tests suite in a native image.
-This is an efficient way to validate the compatibility of your application.
+Você também pode executar seu conjunto de testes existente em uma imagem nativa.
+Esta é uma maneira eficiente de validar a compatibilidade do seu aplicativo.
 
-To run your existing tests in a native image, run the following goal:
+Para executar seus testes existentes em uma imagem nativa, execute o seguinte objetivo:
 
 ```
 $ ./mvnw test -PnativeTest
