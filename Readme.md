@@ -88,11 +88,7 @@ To create the image, run the following goal:
 $ ./mvnw spring-boot:build-image -Pnative
 ```
 
-Then, you can run the app like any other container:
-
-```
-$ docker run --rm -p 8080:8080 areadigital:0.0.1-SNAPSHOT
-```
+ 
 
 ### Executable with Native Build Tools
 Use this option if you want to explore more options such as running your tests in a native image.
@@ -103,7 +99,7 @@ NOTE: GraalVM 22.3+ is required.
 To create the executable, run the following goal:
 
 ```
-$ ./mvnw native:compile -Pnative
+$ ./mvnw clean pacckage -Pnative
 ```
 
 Then, you can run the app as follows:
