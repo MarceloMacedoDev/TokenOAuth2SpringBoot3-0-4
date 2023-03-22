@@ -7,14 +7,20 @@ refresh-token:
     public: "access-refresh-token-keys/refresh-token-public.key"
 
 #Database
+
 spring:
+
     datasource:
         url: jdbc:h2:mem:testdb
-        username:  sa
+        username: sa
         password:
     h2:
         console:
             enabled: true
             path: /h2-console
     jpa:
+
+        hibernate:
+            ddl-auto: update
+        show-sql: true
         defer-datasource-initialization: true
